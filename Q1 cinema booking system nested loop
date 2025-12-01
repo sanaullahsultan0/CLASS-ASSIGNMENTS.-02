@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int rows, cols;
+    cout << "Rows: "<<endl;
+    cin >> rows;
+    cout << "Columns: "<<endl;
+    cin >> cols;
+
+    char seat[50][50];
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            seat[i][j] = 'O';
+        }
+    }
+
+    int again = 1;
+    while (again == 1) {
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                cout << seat[i][j] << " ";
+            }
+            cout << endl;
+        }
+
+        int r, c;
+        cout << "enter row you want: ";
+        cin >> r;
+        cout << "enter Column you want: ";
+        cin >> c;
+
+        r--; 
+        c--;
+
+        if (seat[r][c] == 'O') {
+            seat[r][c] = 'X';
+            cout << "your seat is Reserved: "<<endl;
+        } else {
+            cout << "the seat is already Taken: "<<endl;
+        }
+
+        cout << "if you want to reserve seat Again? (1 yes / 0 no): "<<endl;
+        cin >> again;
+    }
+
+    return 0;
+}
